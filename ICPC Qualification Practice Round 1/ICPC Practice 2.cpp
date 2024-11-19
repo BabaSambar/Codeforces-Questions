@@ -26,7 +26,19 @@ using namespace std;
 
 void solve()
 {
-    
+    ll n; cin >> n;
+    vector<ll> nums(n);
+    for(ll i=0; i<n; i++) cin >> nums[i];
+    sort(nums.begin(), nums.end());
+    vector<ll> ans;
+    for(ll i=0; i<n/2; i++)
+    {
+        ans.push_back(nums[i]);
+        ans.push_back(nums[n-i-1]);
+    }
+    ll sum = 0;
+    for(ll i=0; i<n; i+=2) sum += abs(ans[i]-ans[i+1]);
+    cout << sum << endl;
 }
 
 

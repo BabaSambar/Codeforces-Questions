@@ -30,18 +30,21 @@ void solve()
     vector<int> nums(n);
     for(int i=0; i<n; i++)
     {
-        int t;
-        cin >> t;
-        nums[i] = t;
+        cin >> nums[i];
     }
-    
 
-    int l=0, r=0;
-    
-    // Dp loop
+    std::sort(nums.begin(), nums.end());
 
-    // cout << "->" << res << endl;
-    
+    int max = nums[n-1];
+
+    int i=0;
+    while(nums[i] + nums[i+1] <= nums[n-1])
+    {
+        nums[i] = nums[n-1];
+        i++;
+    }
+
+    cout << i << endl;
 }
 
 

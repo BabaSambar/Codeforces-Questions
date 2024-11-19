@@ -47,15 +47,21 @@ def create_cpp_files(round_number, replace=True):
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     rounds = 5
     for i in range(rounds):
-        file_name = f"{round_number}{letters[i]}.cpp"
+
+        # Create folder to store file
+        if not os.path.exists(f"{round_number}"):
+            os.mkdir(f"{round_number}")
+            print(f"Created folder {round_number}")
+
+        file_name = f"{letters[i]}.cpp"
         
         # If file already exists, skip it
-        if os.path.exists(file_name) and replace is False:
+        if os.path.exists(f"{round_number}/{file_name}") and replace is False:
             print(f"File {file_name} already exists. Skipping.")
             continue
 
         # Write the template to the file
-        with open(file_name, 'w') as f:
+        with open(f"{round_number}/{file_name}", 'w') as f:
             f.write(cpp_template)
         
         print(f"Created {file_name}")
@@ -63,6 +69,6 @@ def create_cpp_files(round_number, replace=True):
 if __name__ == "__main__":
     # Input the Codeforces round number
     round_number = input("Enter the Codeforces round number: ")
+    replace = bool(input("Type 1 to replace current files, 0 to skip replacing: "))
     
-    # Create C++ files for problems A to E
-    create_cpp_files(round_number)
+    create_cpp_files(round_number, replace)

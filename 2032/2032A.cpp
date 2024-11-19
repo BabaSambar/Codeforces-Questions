@@ -24,14 +24,40 @@ using namespace std;
 #define sp " "
 #define fIO ios::sync_with_stdio(false); cin.tie(0);
 
-void solve(){
-    ll num;
-    cin >> num;
-    
+void solve()
+{
+    int n; cin >> n;
+    int zeroes = 0, ones = 0;
+    for(int i=0; i<n*2; i++)
+    {
+        int temp;
+        cin >> temp;
+        if(temp == 0)
+        {
+            zeroes++;
+        }
+        else if(temp == 1)
+        {
+            ones++;
+        }
+    }
+
+    int min = ones % 2 == 0 ? 0 : 1;
+
+    int i = 0;
+    while(zeroes > 0 && ones > 0)
+    {
+        i++;
+        zeroes--;
+        ones--;
+    }
+    int max = i;
+    cout << min << " " << max << endl; 
 }
 
 
-int main(){
+int main()
+{
     fIO
     // freopen("inp.txt","r",stdin);
     tc

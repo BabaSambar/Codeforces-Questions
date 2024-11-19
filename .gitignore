@@ -1,1 +1,5 @@
-.exe
+*.exe
+*.bin
+.vscode/
+.cph/
+run.exe
