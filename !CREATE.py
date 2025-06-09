@@ -45,7 +45,7 @@ int main()
 def create_cpp_files(round_number, replace=True):
     # Create problem files for problems A to E
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    rounds = 4
+    rounds = 5
     for i in range(rounds):
 
         # Create folder to store file
